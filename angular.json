@@ -121,5 +121,10 @@
       }
     }
   },
-  "defaultProject": "App-Followers"
+  "defaultProject": "App-Followers",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "css"
+    }
+  }
 }
