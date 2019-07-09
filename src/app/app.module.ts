@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/Forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { RouteGuard } from './guards/route.guard';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

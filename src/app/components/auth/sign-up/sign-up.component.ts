@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Form } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,8 +12,17 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  //inputUserame: string;
 
-  onSubmitForm(form: Form){
+  // PARA HACER SUBMIT DEL FORM SOLO CON LA CLASE NgForm
+  onSubmitForm(form: NgForm) {
+    const inputUserame = form.value.inputUserame;
+    const inputEmail = form.value.inputEmail;
+    const inputPassword = form.value.inputPassword;
+    const inputConfirmPassword = form.value.inputConfirmPassword;
+
+    console.log(form.value.inputUserame);
 
   }
 

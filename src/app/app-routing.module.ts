@@ -11,14 +11,15 @@ import { MyPostsComponent } from './components/my-posts/my-posts.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { NgModule } from '@angular/core';
+import { RouteGuard } from './guards/route.guard';
 
 const appRoutes: Routes =
     [
         { path: 'home', component: HomeComponent },
-        { path: 'allposts', component: AllPostsComponent },
-        { path: 'favorites', component: FavoritesComponent },
-        { path: 'following', component: FollowingComponent },
-        { path: 'myposts', component: MyPostsComponent },
+        { path: 'allposts', component: AllPostsComponent, canActivate: [RouteGuard] },
+        { path: 'favorites', component: FavoritesComponent, canActivate: [RouteGuard] },
+        { path: 'following', component: FollowingComponent, canActivate: [RouteGuard] },
+        { path: 'myposts', component: MyPostsComponent, canActivate: [RouteGuard] },
         { path: 'login', component: LoginComponent },
         { path: 'signup', component: SignUpComponent },
 
