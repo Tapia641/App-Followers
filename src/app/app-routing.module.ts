@@ -19,7 +19,7 @@ const appRoutes: Routes =
         { path: 'favorites', component: FavoritesComponent, canActivate: [RouteGuard] },
         { path: 'following', component: FollowingComponent, canActivate: [RouteGuard] },
         { path: 'myposts', component: MyPostsComponent, canActivate: [RouteGuard] },
-        { path: 'login', component: LoginComponent },
+        { path: 'login', component: LoginComponent},
         { path: 'signup', component: SignUpComponent },
 
     ];

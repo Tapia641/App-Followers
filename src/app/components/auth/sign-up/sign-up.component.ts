@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as firebase from "firebase";
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -10,7 +11,7 @@ export class SignUpComponent implements OnInit {
 
   register: boolean = false;
 
-  constructor() { }
+  constructor(router: Router) { }
 
   ngOnInit() {
   }
@@ -45,6 +46,8 @@ export class SignUpComponent implements OnInit {
         firebase.auth().signOut();
       })
 
+
+      
     }).catch(err => {
       console.log(err);
       this.register = false;
