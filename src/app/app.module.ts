@@ -12,6 +12,7 @@ import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/Forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { FormsModule } from '@angular/Forms';
     LoginComponent,
     AllPostsComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
