@@ -7,33 +7,41 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div id="my-nav" class="collapse navbar-collapse">
-        
+
         <!-- LADO IZQUIEDO -->
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">All post <span class="sr-only">(current)</span></a>
+
+            <!-- USAR ROUTERLINKACTIVEOPTIONS PARA SOLO MOSTRAR UNO COMPONENT A LA VEZ -->
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]={exact:true}>
+                <a class="nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Following</a>
+            <li class="nav-item" [routerLinkActive]="['router-link-active']">
+                <a class="nav-link" [routerLink]="['/allposts']" tabindex="-1" aria-disabled="false">All posts</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Favorites</a>
+            <li class="nav-item" [routerLinkActive]="['router-link-active']">
+                <a class="nav-link" [routerLink]="['/following']" tabindex="-1" aria-disabled="false">Following</a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">My posts</a>
+            <li class="nav-item" [routerLinkActive]="['router-link-active']">
+                <a class="nav-link" [routerLink]="['/favorites']" tabindex="-1" aria-disabled="false">Favorites</a>
+            </li>
+
+            <li class="nav-item" [routerLinkActive]="['router-link-active']">
+                <a class="nav-link" [routerLink]="['/myposts']" tabindex="-1" aria-disabled="false">My posts</a>
             </li>
         </ul>
 
         <!-- LADO DERECHO -->
         <ul class="nav navbar-nav navbar-right">
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign up</a>
+                <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="router-link-active"
+                    tabindex="-1" aria-disabled="true">Sign up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Login</a>
+                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active"
+                    tabindex="-1" aria-disabled="true">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>

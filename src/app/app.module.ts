@@ -11,6 +11,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/Forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

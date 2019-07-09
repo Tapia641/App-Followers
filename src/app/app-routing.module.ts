@@ -14,13 +14,13 @@ import { NgModule } from '@angular/core';
 
 const appRoutes: Routes =
     [
-        { path: '', component: HomeComponent },
+        { path: 'home', component: HomeComponent },
         { path: 'allposts', component: AllPostsComponent },
         { path: 'favorites', component: FavoritesComponent },
         { path: 'following', component: FollowingComponent },
         { path: 'myposts', component: MyPostsComponent },
-        { path: '', component: LoginComponent },
-        { path: '', component: SignUpComponent },
+        { path: 'login', component: LoginComponent },
+        { path: 'signup', component: SignUpComponent },
 
     ];
 
