@@ -1,5 +1,4 @@
 <!-- MODIFCAMOS EL NAVBAR AL GUSTO -->
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand">App-Followers</a>
     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
@@ -12,7 +11,8 @@
         <ul class="navbar-nav mr-auto">
 
             <!-- USAR ROUTERLINKACTIVEOPTIONS PARA SOLO MOSTRAR UNO COMPONENT A LA VEZ -->
-            <li class="nav-item" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]={exact:true}>
+            <li *ngIf="!isLoggedIn" class="nav-item" [routerLinkActive]="['router-link-active']"
+                [routerLinkActiveOptions]={exact:true}>
                 <a class="nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
             </li>
 
@@ -35,16 +35,19 @@
 
         <!-- LADO DERECHO -->
         <ul class="nav navbar-nav navbar-right">
-            <li class="nav-item">
+
+            <li *ngIf="!isLoggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="router-link-active" tabindex="-1"
                     aria-disabled="true">Sign up</a>
             </li>
-            <li class="nav-item">
+
+            <li *ngIf="!isLoggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/login']" routerLinkActive="router-link-active" tabindex="-1"
                     aria-disabled="true">Login</a>
             </li>
+
             <li *ngIf="isLoggedIn" class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Logout</a>
+                <a class="nav-link" (click)="onLogout()" href="#" tabindex="-1" aria-disabled="true">Logout</a>
             </li>
         </ul>
 

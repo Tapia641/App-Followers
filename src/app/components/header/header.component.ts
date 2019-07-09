@@ -17,11 +17,15 @@ export class HeaderComponent implements OnInit {
     firebase.auth().onAuthStateChanged(userData => {
       if (userData && userData.emailVerified) {
         this.isLoggedIn = true;
-      }else{
+      } else {
         this.isLoggedIn = false;
       }
     });
 
+  }
+
+  onLogout() {
+    firebase.auth().signOut();
   }
 
 }

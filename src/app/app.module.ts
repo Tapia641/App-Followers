@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/Forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouteGuard } from './guards/route.guard';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RouteGuard } from './guards/route.guard';
     AllPostsComponent,
     HomeComponent,
     FooterComponent,
+    NotificationComponent,
   ],
   imports: [
     BrowserModule,

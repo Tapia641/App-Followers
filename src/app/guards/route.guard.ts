@@ -14,8 +14,9 @@ export class RouteGuard implements CanActivate {
     if (firebase.auth().currentUser) {
       return true;
     } else {
+      firebase.auth().signOut();
       return false;
     }
-
   }
+  
 }

@@ -37,9 +37,10 @@ body {
   width: 100%;
 }
 
+/* BOTONES */
 .form-signin .btn {
   font-size: 80%;
-  border-radius: 5rem;
+  border-radius: 0.5rem;
   letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;
@@ -51,9 +52,10 @@ body {
   margin-bottom: 1rem;
 }
 
+/* RECUADROS DE INPUT */
 .form-label-group input {
-  height: auto;
-  border-radius: 2rem;
+  height: 3rem;
+  border-radius: 0.5rem;
 }
 
 .form-label-group>input,

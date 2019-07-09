@@ -6,7 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { AllPostsComponent } from './components/all-posts/all-posts.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { FollowingComponent } from './components/following/following.component';
-import { HeaderComponent } from './components/header/header.component';
 import { MyPostsComponent } from './components/my-posts/my-posts.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';

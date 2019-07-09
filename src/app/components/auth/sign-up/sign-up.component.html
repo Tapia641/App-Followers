@@ -12,28 +12,28 @@
                         <form class="form-signin" (ngSubmit)="onSubmitForm(f)" #f="ngForm">
 
                             <div class="form-label-group">
-                                <input type="text" id="inputUserame" class="form-control" placeholder="Username"
-                                    required autofocus>
+                                <input type="text" name="inputUsername" id="inputUsername" class="form-control"
+                                    placeholder="Username" ngModel required autofocus>
                                 <label for="inputUserame">Username</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
-                                    required>
+                                <input type="email" name="inputEmail" id="inputEmail" class="form-control"
+                                    placeholder="Email address" ngModel required>
                                 <label for="inputEmail">Email address</label>
                             </div>
 
                             <hr>
 
                             <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                    required>
+                                <input type="password" name="inputPassword" id="inputPassword" class="form-control"
+                                    placeholder="Password" ngModel required>
                                 <label for="inputPassword">Password</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="password" id="inputConfirmPassword" class="form-control"
-                                    placeholder="Password" required>
+                                <input type="password" name="inputConfirmPassword" id="inputConfirmPassword"
+                                    class="form-control" placeholder="Password" ngModel required>
                                 <label for="inputConfirmPassword">Confirm password</label>
                             </div>
 
@@ -49,6 +49,11 @@
                             <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
                                     class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
                         </form>
+
+                        <div *ngIf="register" class="alert alert-success" role="alert">
+                            Verification email was sent!
+                        </div>
+
                     </div>
                 </div>
             </div>
