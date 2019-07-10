@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from "firebase";
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

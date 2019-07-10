@@ -21,7 +21,6 @@ const appRoutes: Routes =
         { path: 'myposts', component: MyPostsComponent, canActivate: [RouteGuard] },
         { path: 'login', component: LoginComponent},
         { path: 'signup', component: SignUpComponent },
-
     ];
 
 // NECESARIO PARA EXPORTAR ESTE MODUO

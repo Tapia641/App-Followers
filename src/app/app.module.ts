@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/Forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouteGuard } from './guards/route.guard';
 import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { NotificationComponent } from './components/notification/notification.co
     AppRoutingModule,
     FormsModule
   ],
-  providers: [RouteGuard],
+  providers: [RouteGuard, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

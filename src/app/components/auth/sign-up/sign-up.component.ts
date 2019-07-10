@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as firebase from "firebase";
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -11,7 +12,7 @@ export class SignUpComponent implements OnInit {
 
   register: boolean = false;
 
-  constructor(router: Router) { }
+  constructor(private notifier: NotificationService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,7 +33,9 @@ export class SignUpComponent implements OnInit {
       let user = firebase.auth().currentUser;
       user.sendEmailVerification().then(function () {
         // Email sent and ....
+        this.notifier.display('Verify your email');
       }).catch(function (error) {
+        this.notifier.display('error', error.message);
         console.log(error);
       });
 
@@ -46,9 +49,11 @@ export class SignUpComponent implements OnInit {
         firebase.auth().signOut();
       })
 
+      // UNA VEZ REGISTRADO NOS MOVEMOS AL LOGIN
+      this.router.navigate(['/login']);
 
-      
     }).catch(err => {
+      this.notifier.display('error', err.message);
       console.log(err);
       this.register = false;
     })
