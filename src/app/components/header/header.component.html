@@ -36,6 +36,28 @@
         <!-- LADO DERECHO -->
         <ul class="nav navbar-nav navbar-right">
 
+            <!-- IMAGEN DE USUARIO -->
+            <div *ngIf="isLoggedIn">
+                <div class="image_inner_container">
+                    <img
+                        src="https://help.salesforce.com/resource/1559870315000/HelpStaticResource/assets/images/tdxDefaultUserLogo.png">
+                </div>
+            </div>
+
+            <!-- DROPDOWN -->
+            <li *ngIf="isLoggedIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Welcome {{name}}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" [routerLink]="['/allposts']" routerLinkActive="router-link-active">My
+                        profile</a>
+                    <a class="dropdown-item" [routerLink]="['/allposts']"
+                        routerLinkActive="router-link-active">Settings</a>
+                    <a class="dropdown-item" routerLinkActive="router-link-active" (click)="onLogout()">Log out</a>
+                </div>
+            </li>
+
+
             <li *ngIf="!isLoggedIn" class="nav-item">
                 <a class="nav-link" [routerLink]="['/signup']" routerLinkActive="router-link-active" tabindex="-1"
                     aria-disabled="true">Sign up</a>
@@ -46,9 +68,6 @@
                     aria-disabled="true">Sign In</a>
             </li>
 
-            <li *ngIf="isLoggedIn" class="nav-item">
-                <a class="nav-link" (click)="onLogout()" href="#" tabindex="-1" aria-disabled="true">Logout</a>
-            </li>
         </ul>
 
     </div>

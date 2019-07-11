@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
       authDomain: "app-followers-f6905.firebaseapp.com",
       databaseURL: "https://app-followers-f6905.firebaseio.com",
       projectId: "app-followers-f6905",
-      storageBucket: "",
+      storageBucket: "app-followers-f6905.appspot.com",
       messagingSenderId: "270046968903",
       appId: "1:270046968903:web:0096fd5e90490ec5"
     };

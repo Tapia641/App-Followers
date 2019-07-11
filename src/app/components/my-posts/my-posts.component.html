@@ -1,1 +1,80 @@
-<p>my-posts works!</p>
+<header>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem blanditiis dicta praesentium eligendi molestias nobis
+    architecto voluptate tempore officiis saepe nam incidunt, nisi quasi minima consequuntur quibusdam eos nemo quia.
+</header>
+
+
+<div class="container">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>Upload Image</label>
+
+            <input class="form-control" [(ngModel)]="nameImage" type="text" name="nameIage"
+                placeholder="Type a name for image">
+            <p></p>
+
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-primary btn-file">
+                        Browse… <input type="file" (change)="onFileSelection($event)" placeholder="Upload a image"
+                            accept=".png, .jpeg, .jpg" class="form-control" readonly>
+                    </span>
+                </span>
+
+            </div>
+
+            <app-notification></app-notification>
+
+            <img id='img-upload' />
+        </div>
+    </div>
+</div>
+
+<div class="box">
+    <div class="container">
+        <div class="row">
+
+
+            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Title</h5>
+                    <img class="image-size"
+                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
+                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
+                        deleniti.</p>
+                </div>
+            </div>
+
+            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Title</h5>
+                    <img class="image-size"
+                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
+                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
+                        deleniti.</p>
+                </div>
+            </div>
+
+            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Title</h5>
+                    <img class="image-size"
+                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+
+                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
+                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
+                        deleniti.</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

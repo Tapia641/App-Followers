@@ -10,8 +10,6 @@ import { NotificationService } from 'src/app/services/notification.service';
 })
 export class SignUpComponent implements OnInit {
 
-  register: boolean = false;
-
   constructor(private notifier: NotificationService, private router: Router) { }
 
   ngOnInit() {
@@ -25,38 +23,47 @@ export class SignUpComponent implements OnInit {
     const inputPassword = form.value.inputPassword;
     const inputConfirmPassword = form.value.inputConfirmPassword;
 
-    firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPassword).then(userData => {
-      this.register = true;
+    if (inputPassword == inputConfirmPassword) {
+      firebase.auth().createUserWithEmailAndPassword(inputEmail, inputPassword).then(userData => {
 
-      console.log(userData);
+        console.log(userData);
 
-      let user = firebase.auth().currentUser;
-      user.sendEmailVerification().then(function () {
-        // Email sent and ....
-        this.notifier.display('Verify your email');
-      }).catch(function (error) {
-        this.notifier.display('error', error.message);
-        console.log(error);
-      });
+        let user = firebase.auth().currentUser;
+        user.sendEmailVerification().then(function () {
+          // Email sent and ....
+        }).catch(function (error) {
+          this.notifier.display('error', error.message);
+          console.log(error);
+        });
 
-      firebase.database().ref('users/' + user.uid).set({
-        uid: user.uid,
-        name: inputUsername,
-        email: inputEmail,
-        registrationDate: new Date().toString(),
-        password: inputPassword
-      }).then(() => {
-        firebase.auth().signOut();
+
+        firebase.database().ref('users/' + user.uid).set({
+          uid: user.uid,
+          name: inputUsername,
+          email: inputEmail,
+          registrationDate: new Date().toString(),
+          password: inputPassword
+        }).then(() => {
+          firebase.auth().signOut();
+        })
+
+        // CONFIRMAMOS
+        const message = "A verification email has been sent to ." + inputEmail;
+        this.notifier.display('success', message);
+
+        // UNA VEZ REGISTRADO NOS MOVEMOS AL LOGIN
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 4000);
+
+
+      }).catch(err => {
+        this.notifier.display('error', err.message);
+        console.log(err);
       })
-
-      // UNA VEZ REGISTRADO NOS MOVEMOS AL LOGIN
-      this.router.navigate(['/login']);
-
-    }).catch(err => {
-      this.notifier.display('error', err.message);
-      console.log(err);
-      this.register = false;
-    })
+    } else {
+      this.notifier.display('error', 'These passwords are incorrect');
+    }
 
   }
 
