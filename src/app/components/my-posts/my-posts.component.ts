@@ -18,10 +18,11 @@ export class MyPostsComponent implements OnInit {
   ngOnInit() {
   }
 
-  onFileSelection($event) {
+  onFileSelection($event: Event) {
 
 
-    let fileList: FileList = event.currentTarget.files;
+    // let fileList: FileList = event.currentTarget.files;
+    const fileList = (<HTMLInputElement>$event.target).files;
 
     if (fileList.length > 0 && this.nameImage != null) {
       console.log(fileList);
@@ -29,6 +30,10 @@ export class MyPostsComponent implements OnInit {
 
       this.myfire.uploadFile(file, this.nameImage).then(data => {
         this.notifier.display('success', "Picture successfuly uploaded!")
+
+        // LA ALMACENAMOS EL BASE DE DATOS CON EL ID DEL USUARIO
+        this.myfire.handleImageUpload(data);
+
       }).catch(error => {
         this.notifier.display('error', error.message);
       })
