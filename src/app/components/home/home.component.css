@@ -9,12 +9,14 @@ header {
   
   /* FOR VIDEO */
   header {
-    position: relative;
-    background-color: black;
-    height: 75vh;
-    min-height: 25rem;
-    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     overflow: hidden;
+    z-index: -1;
+    width:45px;
   }
   
   header video {

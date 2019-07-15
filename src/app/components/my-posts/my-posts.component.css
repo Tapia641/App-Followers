@@ -54,3 +54,8 @@ a{
 .fa{
      color:#4183D7;
 }
+
+/* font Google */
+* {
+    font-family: "GoogleSans-Light";
+ }

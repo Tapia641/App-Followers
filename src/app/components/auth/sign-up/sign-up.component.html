@@ -3,8 +3,21 @@
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card card-signin flex-row my-5">
-                    <div class="card-img-left d-none d-md-flex">
+
+                    <!-- PONER LA IMAGEN -->
+                    <div class="card-img-left">
                     </div>
+
+                    <!-- PONER EL VIDEO -->
+                    <!-- <div class="video-container">
+                        <video autoplay loop class="fillWidth visible-lg">
+                            <source
+                                src="https://gcs-vimeo.akamaized.net/exp=1563182937~acl=%2A%2F401733434.mp4%2A~hmac=71dc3b68126b48a54a2f7ae487200071a9c9f6f5eb4b05e219454acfbc0fe3e3/vimeo-prod-skyfire-std-us/01/2143/5/135715695/401733434.mp4"
+                                type="video/mp4">
+                        </video>
+                    </div> -->
+
+
                     <div class="card-body">
                         <h5 class="card-title text-center">Register</h5>
 
@@ -40,6 +53,11 @@
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                 type="submit">Register</button>
 
+
+                            <!-- IMPORT THE COMPONENT OF NOTIFICATION-->
+                            <app-notification></app-notification>
+
+
                             <a class="d-block text-center mt-2 small" [routerLink]="['/login']"
                                 routerLinkActive="router-link-active">Sign In</a>
 
@@ -50,11 +68,8 @@
                                     class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
                         </form>
 
-
-                        <!-- IMPORT THE COMPONENT OF NOTIFICATION-->
-                        <app-notification></app-notification>
-
                     </div>
+
                 </div>
             </div>
         </div>

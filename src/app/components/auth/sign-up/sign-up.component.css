@@ -5,8 +5,8 @@
 }
 
 body {
-  background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
+  background: #fafbfd;
+  background: linear-gradient(to right, #fafbfd, #fff);
 }
 
 .card-signin {
@@ -25,7 +25,8 @@ body {
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+  /* background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512'); */
+  background: scroll center url("https://cdn.pixabay.com/photo/2016/03/09/16/46/hiking-1246836_1280.jpg");
   background-size: cover;
 }
 
@@ -118,4 +119,28 @@ body {
 .btn-facebook {
   color: white;
   background-color: #3b5998;
+}
+
+
+/* FOR VIDEO */
+body
+{
+  margin: 0;
+}
+.video-container 
+{
+  top: 0%;
+  left: 0%;
+  height: 100%;
+  width: 45%;
+  overflow: hidden;
+}
+video.fillWidth {
+  width: 100%;
+}
+
+
+/* font Google */
+* {
+  font-family: "GoogleSans-Regular";
 }

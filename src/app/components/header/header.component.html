@@ -1,4 +1,64 @@
 <!-- MODIFCAMOS EL NAVBAR AL GUSTO -->
+
+<nav class="navbar navbar-light navbar-expand-md bg-light justify-content-center">
+    
+    <a class="navbar-brand" href="#">
+        <img src="https://image.flaticon.com/icons/svg/747/747835.svg" width="30" height="30"
+            class="d-inline-block align-top" alt="">
+        Followers
+    </a>
+
+    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+        
+        <ul *ngIf="isLoggedIn" class="navbar-nav mx-auto text-center">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button type="button" class="btn btn-light" type="submit">Search</button>
+            </form>
+        </ul>
+
+        <!-- !-- LADO DERECHO -- -->
+        <ul class="nav navbar-nav navbar-right flex-row justify-content-right flex-nowrap">
+
+            <!-- !-- IMAGEN DE USUARIO -- -->
+            <div *ngIf="isLoggedIn">
+                <div class="image_inner_container">
+                    <img
+                        src="https://help.salesforce.com/resource/1559870315000/HelpStaticResource/assets/images/tdxDefaultUserLogo.png">
+                </div>
+            </div>
+
+            <!-- !-- DROPDOWN -- -->
+            <li *ngIf="isLoggedIn" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">{{name}}</a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+
+                    <a class="dropdown-item" [routerLink]="['/myposts']" routerLinkActive="router-link-active">My
+                        profile</a>
+
+                    <a class="dropdown-item" routerLinkActive="router-link-active" [routerLink]="['/allposts']">Home</a>
+
+                    <a class=" dropdown-item" routerLinkActive="router-link-active"
+                        [routerLink]="['/following']">Following</a>
+
+                    <a class="dropdown-item" routerLinkActive="router-link-active"
+                        [routerLink]="['/favorites']">Favorites</a>
+
+                    <a class="dropdown-item" routerLinkActive="router-link-active" (click)="onLogout()">Log out</a>
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+
+<!-- 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <a class="navbar-brand">App-Followers</a>
     <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
@@ -7,10 +67,10 @@
     </button>
     <div id="my-nav" class="collapse navbar-collapse">
 
-        <!-- LADO IZQUIEDO -->
+        !-- LADO IZQUIEDO  --
         <ul class="navbar-nav mr-auto">
 
-            <!-- USAR ROUTERLINKACTIVEOPTIONS PARA SOLO MOSTRAR UNO COMPONENT A LA VEZ -->
+            !-- USAR ROUTERLINKACTIVEOPTIONS PARA SOLO MOSTRAR UNO COMPONENT A LA VEZ --
             <li *ngIf="!isLoggedIn" class="nav-item" [routerLinkActive]="['router-link-active']"
                 [routerLinkActiveOptions]={exact:true}>
                 <a class="nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
@@ -33,10 +93,10 @@
             </li>
         </ul>
 
-        <!-- LADO DERECHO -->
+        !-- LADO DERECHO --
         <ul class="nav navbar-nav navbar-right">
 
-            <!-- IMAGEN DE USUARIO -->
+            !-- IMAGEN DE USUARIO --
             <div *ngIf="isLoggedIn">
                 <div class="image_inner_container">
                     <img
@@ -44,7 +104,7 @@
                 </div>
             </div>
 
-            <!-- DROPDOWN -->
+            !-- DROPDOWN --
             <li *ngIf="isLoggedIn" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Welcome {{name}}</a>
@@ -71,4 +131,4 @@
         </ul>
 
     </div>
-</nav>
+</nav> -->

@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: GoogleSans-Bold;
+    src: url(../src/assets/fonts/GoogleSans-Bold.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-BoldItalic;
+    src: url(../src/assets/fonts/GoogleSans-BoldItalic.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-Italic;
+    src: url(../src/assets/fonts/GoogleSans-Italic.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-Medium;
+    src: url(../src/assets/fonts/GoogleSans-Medium.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-MediumItalic;
+    src: url(../src/assets/fonts/GoogleSans-MediumItalic.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-Regular;
+    src: url(../src/assets/fonts/GoogleSans-Regular.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-Light;
+    src: url(../src/assets/fonts/GoogleSans-Light.ttf);
+    }
+@font-face {
+    font-family: GoogleSans-LightItalic;
+    src: url(../src/assets/fonts/GoogleSans-LightItalic.ttf);
+    }
