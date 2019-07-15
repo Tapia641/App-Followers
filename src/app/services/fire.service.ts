@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as firebase from "firebase";
+import * as firebase from 'firebase/app';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -7,6 +7,8 @@ import { UserService } from './user.service';
 })
 
 export class MyFireService {
+
+  MyUrl: string;
 
   constructor(private user: UserService) { }
 
@@ -20,7 +22,7 @@ export class MyFireService {
   }
 
   uploadFile(file, name) {
-    const fileref = firebase.storage().ref().child('image/' + name);
+    const fileref = firebase.storage().ref().child('/image/' + name);
     const uploadTask = fileref.put(file);
 
     return new Promise((resolve, reject) => {
@@ -28,8 +30,12 @@ export class MyFireService {
       }, error => {
         reject(error);
       }, () => {
-        const fileUrl = uploadTask.snapshot.ref.getDownloadURL();
-        resolve({ name, fileUrl });
+
+        fileref.getDownloadURL().then(url => {
+          // SOLO ASI ENVIA LA URL
+          resolve({ name, url });
+        });
+
       });
     });
   }
@@ -40,7 +46,7 @@ export class MyFireService {
     // Get a key for a new Post.
     const newPersonalPostKey = firebase.database().ref().child('myposts').push().key;
     const personalPostDetails = {
-      fileUrl: data.fileUrl,
+      fileUrl: data.url,
       name: data.name,
       creationDate: new Date().toString()
     };
