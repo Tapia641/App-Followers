@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/services/notification.service';
 import { MyFireService } from 'src/app/services/fire.service';
-
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-my-posts',
@@ -14,8 +14,18 @@ export class MyPostsComponent implements OnInit {
     private myfire: MyFireService) { }
 
   nameImage: string;
+  personalPostRef: any;
+  postLists: any = [];
 
   ngOnInit() {
+    const uid = firebase.auth().currentUser.uid;
+    this.personalPostRef = this.myfire.getUserPostRef(uid);
+    this.personalPostRef.on('child_added', data => {
+      this.postLists.push({
+        key: data.key,
+        data: data.val()
+      });
+    })
   }
 
   onFileSelection($event: Event) {

@@ -51,13 +51,37 @@ export class MyFireService {
       creationDate: new Date().toString()
     };
 
+    // Get a key for all posts
+    const allpostkey = firebase.database().ref('allposts').push().key;
+    const allpostdetails = {
+      fileUrl: data.url,
+      name: data.name,
+      creationDate: new Date().toString(),
+      uploadBy: user
+    }
+
+    // Data for the image
+    const imageDetails = {
+      fileUrl: data.url,
+      name: data.name,
+      creationDate: new Date().toString(),
+      uploadBy: user,
+      favoriteCount: 0
+    }
+
     // Write the new post's data simultaneously in the posts list and the user's post list
     const updates = {};
     updates['/myposts/' + user.uid + "/" + newPersonalPostKey] = personalPostDetails;
+    updates['/allposts/' + allpostkey] = allpostdetails;
+    updates['/images/' + data.name] = imageDetails;
+
 
     console.log(personalPostDetails.fileUrl);
 
     return firebase.database().ref().update(updates);
   }
 
+  getUserPostRef(uid) {
+    return firebase.database().ref('mypost').child(uid);
+  }
 }
