@@ -27,8 +27,12 @@ export class AppComponent implements OnInit {
     };
     firebase.initializeApp(firebaseConfig);
 
-    // PARA PONERLO POR DEFAULT
-    this.router.navigate(['/home']);
+    // // PARA PONERLO POR DEFAULT
+    if (firebase.auth().currentUser) {
+      this.router.navigate(['/allposts']);
+    } else {
+      this.router.navigate(['/signup']);
+    }
 
   }
 

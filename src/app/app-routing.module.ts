@@ -11,15 +11,16 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { SignUpComponent } from './components/auth/sign-up/sign-up.component';
 import { NgModule } from '@angular/core';
 import { RouteGuard } from './guards/route.guard';
+import { HomeGuard } from './guards/home.guard';
 
 const appRoutes: Routes =
     [
-        { path: 'home', component: HomeComponent },
+        { path: 'home', component: HomeComponent, canActivate: [HomeGuard] },
         { path: 'allposts', component: AllPostsComponent, canActivate: [RouteGuard] },
         { path: 'favorites', component: FavoritesComponent, canActivate: [RouteGuard] },
         { path: 'following', component: FollowingComponent, canActivate: [RouteGuard] },
         { path: 'myposts', component: MyPostsComponent, canActivate: [RouteGuard] },
-        { path: 'login', component: LoginComponent},
+        { path: 'login', component: LoginComponent },
         { path: 'signup', component: SignUpComponent },
     ];
 

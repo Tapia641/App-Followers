@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-all-posts',
   templateUrl: './all-posts.component.html',
@@ -12,4 +12,5 @@ export class AllPostsComponent implements OnInit {
   ngOnInit() {
   }
 
+  
 }

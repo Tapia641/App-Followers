@@ -21,7 +21,7 @@ export class MyFireService {
 
   }
 
-  uploadFile(file, name) {
+  uploadFile(file, name, description) {
     const fileref = firebase.storage().ref().child('/image/' + name);
     const uploadTask = fileref.put(file);
 
@@ -33,7 +33,7 @@ export class MyFireService {
 
         fileref.getDownloadURL().then(url => {
           // SOLO ASI ENVIA LA URL
-          resolve({ name, url });
+          resolve({ name, url, description });
         });
 
       });
@@ -48,6 +48,7 @@ export class MyFireService {
     const personalPostDetails = {
       fileUrl: data.url,
       name: data.name,
+      description: data.description,
       creationDate: new Date().toString()
     };
 
@@ -56,6 +57,7 @@ export class MyFireService {
     const allpostdetails = {
       fileUrl: data.url,
       name: data.name,
+      description: data.description,
       creationDate: new Date().toString(),
       uploadBy: user
     }
@@ -64,6 +66,7 @@ export class MyFireService {
     const imageDetails = {
       fileUrl: data.url,
       name: data.name,
+      description: data.description,
       creationDate: new Date().toString(),
       uploadBy: user,
       favoriteCount: 0
@@ -82,6 +85,6 @@ export class MyFireService {
   }
 
   getUserPostRef(uid) {
-    return firebase.database().ref('mypost').child(uid);
+    return firebase.database().ref('myposts').child(uid);
   }
 }

@@ -1,75 +1,79 @@
-
 <div class="container">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Upload Image</label>
 
-            <input class="form-control" [(ngModel)]="nameImage" type="text" name="nameIage"
-                placeholder="Type a name for image">
-            <p></p>
+    <div class="rela-block profile-card">
 
-            <div class="input-group">
-                <span class="input-group-btn">
-                    <span class="btn btn-primary btn-file">
-                        Browse… <input type="file" (change)="onFileSelection($event)" placeholder="Upload a image"
-                            accept=".png, .jpeg, .jpg" class="form-control" readonly>
-                    </span>
-                </span>
+        <div class="profile-pic" id="profile_pic">
+            <img src="https://help.salesforce.com/resource/1559870315000/HelpStaticResource/assets/images/tdxDefaultUserLogo.png"
+                alt="" srcset="">
+        </div>
 
-            </div>
+        <div class="rela-block profile-name-container">
+            <div class="rela-block user-name" id="user_name">User Name Here</div>
+            <div class="rela-block user-desc" id="user_description">User Description Here</div>
+        </div>
 
-            <app-notification></app-notification>
 
-            <img id='img-upload' />
+        <div class="rela-block profile-card-stats">
+            <div class="floated profile-stat works" id="num_works">{{postLists.length}}<br></div>
+            <div class="floated profile-stat followers" id="num_followers">0<br></div>
+            <div class="floated profile-stat following" id="num_following">0<br></div>
         </div>
     </div>
-</div>
 
-<div class="box">
+
+    <!-- SUBIR UNA IMAGEN -->
     <div class="container">
-        <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Upload Image</label>
 
+                <input class="form-control" [(ngModel)]="nameImage" type="text" name="nameIage"
+                    placeholder="Type a name for image">
+                <p></p>
 
-            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Title</h5>
-                    <img class="img-fluid"
-                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                <input class="form-control" [(ngModel)]="description" type="text" name="decription"
+                    placeholder="Type a little description">
+                <p></p>
 
-                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
-                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
-                        deleniti.</p>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse… <input type="file" (change)="onFileSelection($event)" placeholder="Upload a image"
+                                accept=".png, .jpeg, .jpg" class="form-control" readonly>
+                        </span>
+                    </span>
+
                 </div>
+
+                <app-notification></app-notification>
+
+                <img id='img-upload' />
             </div>
-
-            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Title</h5>
-                    <img class="img-fluid"
-                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-
-                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
-                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
-                        deleniti.</p>
-                </div>
-            </div>
-
-            <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Title</h5>
-                    <img class="img-fluid"
-                        src="https://images.pexels.com/photos/811105/pexels-photo-811105.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
-
-                    <p class="card-text text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Veritatis ad illum suscipit perferendis quaerat delectus consequuntur debitis quis quod
-                        praesentium ducimus aperiam, corrupti earum porro quam mollitia, excepturi adipisci
-                        deleniti.</p>
-                </div>
-            </div>
-
-
         </div>
     </div>
+
+
+    <!-- IMAGENES SUBIDAS -->
+    <div class="box">
+        <div class="container">
+            <div class="row">
+
+                <div class="card col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngFor="let post of postLists">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">{{post.data.name}}</h4>
+                        <h6 class="card-title text-center disable">
+                            {{post.data.creationDate | date:'dd-MM-yyyy hh:mm:ss'}}
+                        </h6>
+                        <img class="img-fluid" src="{{post.data.fileUrl}}">
+
+                        <p class="card-text text-center">{{post.data.description}}.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="rela-inline button more-images" onclick="add_images(); inf_scroll = true;">More Images</div>
+
 </div>
