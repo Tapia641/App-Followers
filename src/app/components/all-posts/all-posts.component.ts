@@ -7,9 +7,15 @@ import * as firebase from 'firebase';
 })
 export class AllPostsComponent implements OnInit {
 
+  all : any[];
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onLoadMore(){
+
   }
 
   

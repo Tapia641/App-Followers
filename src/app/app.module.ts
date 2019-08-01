@@ -18,6 +18,8 @@ import { NotificationComponent } from './components/notification/notification.co
 import { NotificationService } from './services/notification.service';
 import { MyFireService } from './services/fire.service';
 import { UserService } from './services/user.service';
+import { SharedComponent } from './components/shared/shared.component';
+import { PostComponent } from './components/shared/post/post.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { UserService } from './services/user.service';
     HomeComponent,
     FooterComponent,
     NotificationComponent,
+    SharedComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
