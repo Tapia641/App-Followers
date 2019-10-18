@@ -18,7 +18,6 @@ import { NotificationComponent } from './components/notification/notification.co
 import { NotificationService } from './services/notification.service';
 import { MyFireService } from './services/fire.service';
 import { UserService } from './services/user.service';
-import { SharedComponent } from './components/shared/shared.component';
 import { PostComponent } from './components/shared/post/post.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { PostComponent } from './components/shared/post/post.component';
     HomeComponent,
     FooterComponent,
     NotificationComponent,
-    SharedComponent,
     PostComponent,
   ],
   imports: [
